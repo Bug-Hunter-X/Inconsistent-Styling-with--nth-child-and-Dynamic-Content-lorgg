@@ -1,0 +1,27 @@
+Instead of relying solely on `:nth-child`, use JavaScript to add or remove the styling class after the DOM changes. This approach ensures that the styling is always consistent:
+
+```javascript
+function styleEvenListItems() {
+  const listItems = document.querySelectorAll('#myList li');
+  listItems.forEach((item, index) => {
+    if (index % 2 === 0) {
+      item.classList.add('even');
+    } else {
+      item.classList.remove('even');
+    }
+  });
+}
+
+// Initial styling
+styleEvenListItems();
+
+// Call styleEvenListItems() whenever the list content changes.
+// Example: after adding a new list item
+
+```
+
+And your CSS should be updated to style based on the class:
+
+```css
+.even { background-color: #f0f0f0; }
+```
