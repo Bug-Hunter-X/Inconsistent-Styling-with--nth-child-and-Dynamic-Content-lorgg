@@ -1,0 +1,7 @@
+The CSS rule `:nth-child(n)` selector can lead to unexpected results when used with dynamically generated content or content that changes frequently.  Suppose you want to style every other list item:
+
+```css
+li:nth-child(even) { background-color: #f0f0f0; }
+```
+
+If list items are added or removed, the styling might not update correctly. For instance, if you add an item at the beginning, only the items *after* the added item will be styled as expected. This is because the `:nth-child` selector is based on the index of the element within its parent, which changes when the DOM is manipulated.
